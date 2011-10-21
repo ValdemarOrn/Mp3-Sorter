@@ -64,6 +64,15 @@ namespace Mp3Sorter
 
 		protected void loadMP3Info(MP3Info info)
 		{
+			checkBoxAlbum.Checked = false;
+			checkBoxAlbumArtist.Checked = false;
+			checkBoxArtist.Checked = false;
+			checkBoxComment.Checked = false;
+			checkBoxGenre.Checked = false;
+			checkBoxTitle.Checked = false;
+			checkBoxTrackNumber.Checked = false;
+			checkBoxYear.Checked = false;
+
 			if (info != null)
 			{
 
@@ -99,14 +108,14 @@ namespace Mp3Sorter
 		{
 			var info = new MP3Info();
 
-			info.Album = textBoxAlbum.Text;
-			info.AlbumArtist = textBoxAlbumArtist.Text;
-			info.Artist = textBoxArtist.Text;
-			info.Comment = textBoxComment.Text;
-			info.Genre = textBoxGenre.Text;
-			info.Title = textBoxTitle.Text;
-			info.Tracknumber = Convert.ToInt32(textBoxTrackNumber.Text);
-			info.Year = Convert.ToInt32(textBoxYear.Text);
+			info.Album			= checkBoxAlbum.Checked			? textBoxAlbum.Text : null;
+			info.AlbumArtist	= checkBoxAlbumArtist.Checked	? textBoxAlbumArtist.Text : null;
+			info.Artist			= checkBoxArtist.Checked		? textBoxArtist.Text : null;
+			info.Comment		= checkBoxComment.Checked		? textBoxComment.Text : null;
+			info.Genre			= checkBoxGenre.Checked			? textBoxGenre.Text : null;
+			info.Title			= checkBoxTitle.Checked			? textBoxTitle.Text : null;
+			info.Tracknumber	= checkBoxTrackNumber.Checked	? (int?)Convert.ToInt32(textBoxTrackNumber.Text) : null;
+			info.Year			= checkBoxYear.Checked			? (int?)Convert.ToInt32(textBoxYear.Text) : null;
 
 			ctrl.setTag(info);
 		}
@@ -453,6 +462,46 @@ namespace Mp3Sorter
 		{
 			About about = new About();
 			about.ShowDialog();
+		}
+
+		private void textBoxArtist_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			checkBoxArtist.Checked = true;
+		}
+
+		private void textBoxAlbumArtist_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			checkBoxAlbumArtist.Checked = true;
+		}
+
+		private void textBoxTitle_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			checkBoxTitle.Checked = true;
+		}
+
+		private void textBoxAlbum_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			checkBoxAlbum.Checked = true;
+		}
+
+		private void textBoxGenre_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			checkBoxGenre.Checked = true;
+		}
+
+		private void textBoxYear_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			checkBoxYear.Checked = true;
+		}
+
+		private void textBoxTrackNumber_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			checkBoxTrackNumber.Checked = true;
+		}
+
+		private void textBoxComment_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			checkBoxComment.Checked = true;
 		}
 
 		

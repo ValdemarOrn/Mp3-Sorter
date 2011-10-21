@@ -157,14 +157,29 @@ namespace Mp3Sorter
 
 			TagLib.File tagFile = TagLib.File.Create(filename);
 
-			tagFile.Tag.Performers = new string[1] { info.Artist };
-			tagFile.Tag.Title = info.Title;
-			tagFile.Tag.Year = (uint)info.Year;
-			tagFile.Tag.Comment = info.Comment;
-			tagFile.Tag.Album = info.Album;
-			tagFile.Tag.Track = (uint)info.Tracknumber;
-			tagFile.Tag.Genres = new string[1] { info.Genre };
-			tagFile.Tag.AlbumArtists = new string[1] { info.AlbumArtist };
+			if (info.Artist != null)
+				tagFile.Tag.Performers = new string[1] { info.Artist };
+
+			if (info.Title != null)
+				tagFile.Tag.Title = info.Title;
+
+			if (info.Year != null)
+				tagFile.Tag.Year = (uint)info.Year;
+
+			if (info.Comment != null)
+				tagFile.Tag.Comment = info.Comment;
+
+			if (info.Album != null)
+				tagFile.Tag.Album = info.Album;
+
+			if (info.Tracknumber != null)
+				tagFile.Tag.Track = (uint)info.Tracknumber;
+
+			if (info.Genre != null)
+				tagFile.Tag.Genres = new string[1] { info.Genre };
+
+			if (info.AlbumArtist != null)
+				tagFile.Tag.AlbumArtists = new string[1] { info.AlbumArtist };
 
 			var pos = getPos();
 			stop();
