@@ -163,7 +163,7 @@ namespace Mp3Sorter
 			timer.Interval = 100;
 			timer.Enabled = true;
 
-			baseDir = @"E:\music unsorted\__Tagged";
+			baseDir = @"C:\";
 			loadFiles();
 			loadDirs();
 		}
